@@ -8,7 +8,7 @@ class ColorManager {
   static const Color tertiaryColor = Color(0xff1877F2);
   static const Color errorBorderColor = Colors.redAccent;
 
-  static const Color backgroundColor = Colors.transparent;
+  static const Color backgroundColor = Colors.white;
 
   //==================================== Const Colors ====================================//
   static const white = Color(0xffF9F9F9);

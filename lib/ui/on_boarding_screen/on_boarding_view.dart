@@ -1,5 +1,6 @@
 import 'package:auvnet_task/core/utils/assets_manager.dart';
 import 'package:auvnet_task/core/utils/config.dart';
+import 'package:auvnet_task/core/utils/routes_manager.dart';
 import 'package:auvnet_task/core/utils/text_style_manager.dart';
 import 'package:auvnet_task/data/model/description_onboarding_model%20.dart';
 import 'package:auvnet_task/ui/on_boarding_screen/widget/description_onboarding_body.dart';
@@ -57,8 +58,11 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                             descriptions[currentDescriptionBody].description),
                     Config.spaceSmall,
                     ElevatedButton(
-                      onPressed: () {},
-                      child: Text("Get Started"),
+                      onPressed: () {
+                        Navigator.pushReplacementNamed(
+                            context, RouteManager.loginScreen);
+                      },
+                      child: const Text("Get Started"),
                     ),
                     if (descriptions.length - 1 != currentDescriptionBody)
                       TextButton(

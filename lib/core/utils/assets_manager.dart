@@ -1,17 +1,11 @@
+// ignore_for_file: prefer_single_quotes
 class AssetsManager {
-  /// Assets for imagesAuthBackground
-  /// assets/images/auth_background.png
-  static const String imagesAuthBackground =
-      "assets/images/auth_background.png";
+  AssetsManager._();
 
-  /// Assets for imagesIconAppIcon
-  /// assets/images/icon/app_icon.png
-  static const String imagesIconAppIcon = "assets/images/icon/app_icon.png";
-
-  /// Assets for imagesIconAppIconForeground
-  /// assets/images/icon/app_icon_foreground.png
-  static const String imagesIconAppIconForeground =
-      "assets/images/icon/app_icon_foreground.png";
+  /// Assets for imagesOnboardingIcon
+  /// assets/images/onboarding_icon.png
+  static const String imagesOnboardingIcon =
+      "assets/images/onboarding_icon.png";
 
   /// Assets for translationsAr
   /// assets/translations/ar.json

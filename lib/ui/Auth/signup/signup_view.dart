@@ -54,7 +54,7 @@ class _SignupViewState extends State<SignupView> {
                 validator: Validator.password,
               ),
               TextFormField(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Confirm Password',
                   prefixIcon: Icon(Icons.lock_outline),
                 ),

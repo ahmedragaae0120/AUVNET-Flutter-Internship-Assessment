@@ -17,7 +17,9 @@ class _LoginViewState extends State<LoginView> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   _loginPressed() {
-    if (_formKey.currentState?.validate() ?? false) {}
+    if (_formKey.currentState?.validate() ?? false) {
+      Navigator.pushNamed(context, RouteManager.mainScreen);
+    }
     return null;
   }
 
@@ -30,6 +32,7 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
+    Config().init(context);
     return Scaffold(
         body: SingleChildScrollView(
       child: Padding(

@@ -26,6 +26,10 @@ class AssetsManager {
   /// assets/images/nawel_icon.png
   static const String imagesNawelIcon = "assets/images/nawel_icon.png";
 
+  /// Assets for imagesNotFoundImage
+  /// assets/images/NotFoundImage.png
+  static const String imagesNotFoundImage = "assets/images/NotFoundImage.png";
+
   /// Assets for imagesOnboardingIcon
   /// assets/images/onboarding_icon.png
   static const String imagesOnboardingIcon = "assets/images/onboarding_icon.png";

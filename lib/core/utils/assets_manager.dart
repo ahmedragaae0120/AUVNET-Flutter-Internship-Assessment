@@ -34,6 +34,10 @@ class AssetsManager {
   /// assets/images/onboarding_icon.png
   static const String imagesOnboardingIcon = "assets/images/onboarding_icon.png";
 
+  /// Assets for imagesSliderImage
+  /// assets/images/slider_image.png
+  static const String imagesSliderImage = "assets/images/slider_image.png";
+
   /// Assets for translationsAr
   /// assets/translations/ar.json
   static const String translationsAr = "assets/translations/ar.json";

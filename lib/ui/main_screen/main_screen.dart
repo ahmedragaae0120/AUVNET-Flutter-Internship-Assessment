@@ -1,10 +1,13 @@
+import 'package:auvnet_task/core/Di/di.dart';
 import 'package:auvnet_task/core/utils/assets_manager.dart';
 import 'package:auvnet_task/ui/tabs/cart/cart_tab_view.dart';
 import 'package:auvnet_task/ui/tabs/categories/categories_tab_view.dart';
 import 'package:auvnet_task/ui/tabs/deliver/deliver_tab_view.dart';
 import 'package:auvnet_task/ui/tabs/home/home_tab_view.dart';
+import 'package:auvnet_task/ui/tabs/home/view_model/bloc/home_bloc.dart';
 import 'package:auvnet_task/ui/tabs/profile/profile_tab_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 

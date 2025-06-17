@@ -9,6 +9,9 @@ class AppTheme {
       // appBarTheme: const AppBarTheme(
       //     centerTitle: true, elevation: 0, backgroundColor: Colors.transparent),
       scaffoldBackgroundColor: ColorManager.backgroundColor,
+      progressIndicatorTheme: const ProgressIndicatorThemeData(
+        color: ColorManager.onPrimaryColor,
+      ),
       colorScheme: ColorScheme.fromSeed(
         seedColor: ColorManager.primaryColor,
         primary: ColorManager.primaryColor,

@@ -7,6 +7,7 @@ class ProfileTabView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: const Color.fromARGB(255, 222, 243, 33),
+      child: const Center(child: Text("Profile")),
     );
   }
 }

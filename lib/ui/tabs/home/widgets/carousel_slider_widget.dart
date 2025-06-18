@@ -23,9 +23,12 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
         children: [
           CarouselSlider.builder(
             itemCount: totalImages,
-            itemBuilder: (context, index, realIndex) => Image.asset(
-              AssetsManager.imagesSliderImage,
-              fit: BoxFit.fitWidth,
+            itemBuilder: (context, index, realIndex) => ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: Image.asset(
+                AssetsManager.imagesSliderImage,
+                fit: BoxFit.scaleDown,
+              ),
             ),
             options: CarouselOptions(
               autoPlay: true,

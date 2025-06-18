@@ -16,7 +16,8 @@ class ServicesItemBuilder extends StatefulWidget {
   State<ServicesItemBuilder> createState() => _ServicesItemBuilderState();
 }
 
-class _ServicesItemBuilderState extends State<ServicesItemBuilder> {
+class _ServicesItemBuilderState extends State<ServicesItemBuilder>
+    with AutomaticKeepAliveClientMixin {
   @override
   void initState() {
     super.initState();
@@ -26,19 +27,22 @@ class _ServicesItemBuilderState extends State<ServicesItemBuilder> {
   }
 
   @override
+  bool get wantKeepAlive => true;
+
+  @override
   Widget build(BuildContext context) {
     Config().init(context);
+    super.build(context);
+
     return BlocBuilder<HomeBloc, HomeState>(
       buildWhen: (previous, current) {
-        if (current.status == Status.loading ||
-            current.status == Status.error ||
-            current.status == Status.services) {
+        if (previous.servicesStatus != current.servicesStatus) {
           return true;
         }
         return false;
       },
       builder: (context, state) {
-        switch (state.status) {
+        switch (state.servicesStatus) {
           case Status.services:
             return SizedBox(
               height: Config.screenHight! * 0.2,

@@ -48,10 +48,13 @@ class ServicesItemWidget extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 4),
-        Text(
-          serviceModel.name ?? "",
-          style: AppTextStyle.medium14,
-          overflow: TextOverflow.ellipsis,
+        Flexible(
+          child: Text(
+            serviceModel.name ?? "",
+            style: AppTextStyle.medium14,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 2,
+          ),
         ),
       ],
     );

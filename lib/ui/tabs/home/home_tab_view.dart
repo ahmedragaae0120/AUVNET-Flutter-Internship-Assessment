@@ -41,12 +41,6 @@ class HomeTabView extends StatelessWidget {
             const PopularRestaurantBuilder(),
           ])),
         ),
-
-        // const SliverToBoxAdapter(child: Config.spaceSmall),
-        // const SliverToBoxAdapter(child: Config.spaceSmall),
-        // const SliverToBoxAdapter(child: Config.spaceSmall),
-
-        // const SliverToBoxAdapter(child: Config.spaceSmall),
       ]),
     );
   }

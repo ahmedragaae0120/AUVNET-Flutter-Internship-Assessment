@@ -7,6 +7,7 @@ class CategoriesTabView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.red,
+      child: const Center(child: Text("Categories")),
     );
   }
 }

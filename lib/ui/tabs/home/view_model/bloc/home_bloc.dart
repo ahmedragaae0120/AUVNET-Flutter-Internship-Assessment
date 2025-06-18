@@ -17,56 +17,69 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final GetShortcutsUsecase getShortcutsUsecase;
   HomeBloc(this.getPopularRestaurantsUsecase, this.getServicesUsecase,
       this.getShortcutsUsecase)
-      : super(HomeState(status: Status.initial)) {
+      : super(HomeState(
+          servicesStatus: Status.initial,
+          shortcutStatus: Status.initial,
+          popularStatus: Status.initial,
+        )) {
     on<HomeEvent>((event, emit) {});
   }
 
   static HomeBloc get(context) => BlocProvider.of<HomeBloc>(context);
 
   getPopularRestaurants() async {
-    emit(state.copyWith(status: Status.loading));
+    emit(state.copyWith(
+      popularStatus: Status.loading,
+    ));
     var result = await getPopularRestaurantsUsecase.call();
     switch (result) {
       case Success():
         emit(state.copyWith(
-          status: Status.popular,
+          popularStatus: Status.popular,
           popularRestaurants: result.data,
         ));
         break;
       case Error():
-        emit(state.copyWith(status: Status.error, exception: result.exception));
+        emit(state.copyWith(
+            popularStatus: Status.error, exception: result.exception));
         break;
     }
   }
 
   getServices() async {
-    emit(state.copyWith(status: Status.loading));
+    emit(state.copyWith(
+      servicesStatus: Status.loading,
+    ));
     var result = await getServicesUsecase.call();
     switch (result) {
       case Success():
         emit(state.copyWith(
-          status: Status.services,
+          servicesStatus: Status.services,
           services: result.data,
         ));
         break;
       case Error():
-        emit(state.copyWith(status: Status.error, exception: result.exception));
+        emit(state.copyWith(
+            servicesStatus: Status.error, exception: result.exception));
         break;
     }
   }
 
   getShortcuts() async {
-    emit(state.copyWith(status: Status.loading));
+    emit(state.copyWith(
+      popularStatus: Status.loading,
+    ));
     var result = await getShortcutsUsecase.call();
     switch (result) {
       case Success():
         emit(state.copyWith(
-          status: Status.shortcut,
+          shortcutStatus: Status.shortcut,
           shortcuts: result.data,
         ));
         break;
       case Error():
-        emit(state.copyWith(status: Status.error, exception: result.exception));
+        emit(state.copyWith(
+            shortcutStatus: Status.error, exception: result.exception));
         break;
     }
   }

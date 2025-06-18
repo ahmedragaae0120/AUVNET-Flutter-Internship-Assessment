@@ -5,14 +5,19 @@ import 'package:auvnet_task/ui/Auth/view_model/bloc/auth_bloc.dart';
 import 'package:equatable/equatable.dart';
 
 class HomeState extends Equatable {
-  Status status;
+  Status servicesStatus;
+  Status shortcutStatus;
+  Status popularStatus;
+
   List<ServiceModel>? services;
   List<PopularRestaurantModel>? popularRestaurants;
   List<ShortcutModel>? shortcuts;
   Exception? exception;
 
   HomeState({
-    required this.status,
+    required this.servicesStatus,
+    required this.shortcutStatus,
+    required this.popularStatus,
     this.services,
     this.popularRestaurants,
     this.shortcuts,
@@ -20,14 +25,18 @@ class HomeState extends Equatable {
   });
 
   HomeState copyWith({
-    Status? status,
+    Status? servicesStatus,
+    Status? shortcutStatus,
+    Status? popularStatus,
     List<ServiceModel>? services,
     List<PopularRestaurantModel>? popularRestaurants,
     List<ShortcutModel>? shortcuts,
     Exception? exception,
   }) {
     return HomeState(
-      status: status ?? this.status,
+      servicesStatus: servicesStatus ?? this.servicesStatus,
+      shortcutStatus: shortcutStatus ?? this.shortcutStatus,
+      popularStatus: popularStatus ?? this.popularStatus,
       services: services ?? this.services,
       popularRestaurants: popularRestaurants ?? this.popularRestaurants,
       shortcuts: shortcuts ?? this.shortcuts,
@@ -36,6 +45,13 @@ class HomeState extends Equatable {
   }
 
   @override
-  List<Object?> get props =>
-      [status, services, popularRestaurants, shortcuts, exception];
+  List<Object?> get props => [
+        servicesStatus,
+        shortcutStatus,
+        popularStatus,
+        services,
+        popularRestaurants,
+        shortcuts,
+        exception,
+      ];
 }

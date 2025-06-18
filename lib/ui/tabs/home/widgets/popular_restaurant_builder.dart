@@ -29,15 +29,13 @@ class _PopularRestaurantBuilderState extends State<PopularRestaurantBuilder> {
     Config().init(context);
     return BlocBuilder<HomeBloc, HomeState>(
       buildWhen: (previous, current) {
-        if (current.status == Status.loading ||
-            current.status == Status.error ||
-            current.status == Status.popular) {
+        if (previous.popularStatus != current.popularStatus) {
           return true;
         }
         return false;
       },
       builder: (context, state) {
-        switch (state.status) {
+        switch (state.popularStatus) {
           case Status.popular:
             return SizedBox(
               height: Config.screenHight! * 0.2,

@@ -14,7 +14,9 @@ class ShortcutItemBuilder extends StatefulWidget {
   State<ShortcutItemBuilder> createState() => _ShortcutItemBuilderState();
 }
 
-class _ShortcutItemBuilderState extends State<ShortcutItemBuilder> {
+class _ShortcutItemBuilderState extends State<ShortcutItemBuilder>
+    with AutomaticKeepAliveClientMixin {
+  @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
@@ -23,19 +25,21 @@ class _ShortcutItemBuilderState extends State<ShortcutItemBuilder> {
   }
 
   @override
+  bool get wantKeepAlive => true;
+
+  @override
   Widget build(BuildContext context) {
     Config().init(context);
+    super.build(context);
     return BlocBuilder<HomeBloc, HomeState>(
       buildWhen: (previous, current) {
-        if (current.status == Status.loading ||
-            current.status == Status.error ||
-            current.status == Status.shortcut) {
+        if (previous.shortcutStatus != current.shortcutStatus) {
           return true;
         }
         return false;
       },
       builder: (context, state) {
-        switch (state.status) {
+        switch (state.shortcutStatus) {
           case Status.shortcut:
             return SizedBox(
               height: Config.screenHight! * 0.2,

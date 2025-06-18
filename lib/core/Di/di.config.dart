@@ -11,6 +11,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
+import 'package:logger/logger.dart' as _i974;
 
 import '../../data/data_source_contract/auth/login_datasource.dart' as _i1048;
 import '../../data/data_source_contract/auth/signup_datasource.dart' as _i561;
@@ -31,6 +32,7 @@ import '../../domain/use_cases/get_services_usecase.dart' as _i846;
 import '../../domain/use_cases/get_shortcuts_usecase.dart' as _i1049;
 import '../../ui/Auth/view_model/bloc/auth_bloc.dart' as _i1002;
 import '../../ui/tabs/home/view_model/bloc/home_bloc.dart' as _i446;
+import '../logger/logger_module.dart' as _i279;
 import '../services/supabase/supabase_helper.dart' as _i906;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -44,7 +46,10 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
+    final loggerModule = _$LoggerModule();
     gh.singleton<_i906.SupabaseHelper>(() => _i906.SupabaseHelper());
+    gh.lazySingleton<_i974.Logger>(() => loggerModule.loggerProvider);
+    gh.lazySingleton<_i974.PrettyPrinter>(() => loggerModule.prettyPrinter);
     gh.factory<_i102.HomeDataSource>(
         () => _i241.HomeDatasourceImpl(gh<_i906.SupabaseHelper>()));
     gh.factory<_i561.SignupDatasource>(
@@ -57,12 +62,12 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i99.SignupRepoImpl(gh<_i561.SignupDatasource>()));
     gh.factory<_i284.LoginRepo>(
         () => _i314.LoginRepoImpl(gh<_i1048.LoginDataSource>()));
-    gh.factory<_i1049.GetShortcutsUsecase>(
-        () => _i1049.GetShortcutsUsecase(gh<_i742.HomeRepo>()));
-    gh.factory<_i846.GetServicesUsecase>(
-        () => _i846.GetServicesUsecase(gh<_i742.HomeRepo>()));
     gh.factory<_i653.GetPopularRestaurantsUsecase>(
         () => _i653.GetPopularRestaurantsUsecase(gh<_i742.HomeRepo>()));
+    gh.factory<_i846.GetServicesUsecase>(
+        () => _i846.GetServicesUsecase(gh<_i742.HomeRepo>()));
+    gh.factory<_i1049.GetShortcutsUsecase>(
+        () => _i1049.GetShortcutsUsecase(gh<_i742.HomeRepo>()));
     gh.factory<_i912.LoginUsecase>(
         () => _i912.LoginUsecase(gh<_i284.LoginRepo>()));
     gh.factory<_i388.SignupUsecase>(
@@ -79,3 +84,5 @@ extension GetItInjectableX on _i174.GetIt {
     return this;
   }
 }
+
+class _$LoggerModule extends _i279.LoggerModule {}

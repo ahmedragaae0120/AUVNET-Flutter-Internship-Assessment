@@ -1,6 +1,13 @@
-class PopularRestaurantModel {
+import 'package:hive/hive.dart';
+part 'popular_restaurant_model.g.dart';
+
+@HiveType(typeId: 3)
+class PopularRestaurantModel extends HiveObject {
+  @HiveField(0)
   final String? name;
+  @HiveField(1)
   final String? imageUrl;
+  @HiveField(2)
   final String? deliveryTime;
 
   PopularRestaurantModel({

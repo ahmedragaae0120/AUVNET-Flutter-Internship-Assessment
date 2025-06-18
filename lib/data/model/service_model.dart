@@ -1,6 +1,13 @@
-class ServiceModel {
+import 'package:hive/hive.dart';
+part 'service_model.g.dart';
+
+@HiveType(typeId: 1)
+class ServiceModel extends HiveObject {
+  @HiveField(0)
   final String? imageUrl;
+  @HiveField(1)
   final String? deliveryTime;
+  @HiveField(2)
   final String? name;
 
   ServiceModel({

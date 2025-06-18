@@ -102,9 +102,9 @@ class _SignupViewState extends State<SignupView> {
                   TextButton(
                     onPressed: () {
                       Navigator.pushNamedAndRemoveUntil(
-                          context, RouteManager.singupScreen, (route) => false);
+                          context, RouteManager.loginScreen, (route) => false);
                     },
-                    child: const Text("Create an account"),
+                    child: const Text("I already have an account"),
                   ),
                 ],
               ),

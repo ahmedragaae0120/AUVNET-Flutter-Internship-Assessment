@@ -8,6 +8,10 @@ class AppTheme {
   static ThemeData lightTheme = ThemeData(
       // appBarTheme: const AppBarTheme(
       //     centerTitle: true, elevation: 0, backgroundColor: Colors.transparent),
+      scaffoldBackgroundColor: ColorManager.backgroundColor,
+      progressIndicatorTheme: const ProgressIndicatorThemeData(
+        color: ColorManager.onPrimaryColor,
+      ),
       colorScheme: ColorScheme.fromSeed(
         seedColor: ColorManager.primaryColor,
         primary: ColorManager.primaryColor,
@@ -36,8 +40,8 @@ class AppTheme {
       ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: Colors.grey[400],
-        iconColor: ColorManager.onSecondaryColor,
+        fillColor: const Color.fromARGB(255, 236, 234, 234),
+        iconColor: ColorManager.red,
         contentPadding:
             const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         border: OutlineInputBorder(
@@ -74,7 +78,7 @@ class AppTheme {
           textStyle: AppTextStyle.semiBold14,
           padding: const EdgeInsets.symmetric(vertical: 16),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(50),
+            borderRadius: BorderRadius.circular(10),
           ),
         ),
       ),

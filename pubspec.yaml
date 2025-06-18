@@ -51,6 +51,7 @@ dependencies:
   hive_flutter: ^1.1.0
   path_provider: ^2.0.15
   internet_connection_checker_plus: ^2.7.2
+  flutter_native_splash: ^2.4.4
 
 dev_dependencies:
   flutter_test:
@@ -112,3 +113,15 @@ flutter_assets:
   filename: assets_manager.dart
   field_prefix:
   classname: AssetsManager
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/images/nawel_icon.png
+  image_dark: assets/images/nawel_icon.png
+
+  android_12:
+    image: assets/images/nawel_icon.png
+    icon_background_color: "#ffffff"
+    image_dark: assets/images/nawel_icon.png
+    icon_background_color_dark: "#ffffff"
+  web: false
